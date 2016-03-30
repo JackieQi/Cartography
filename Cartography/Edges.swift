@@ -47,6 +47,17 @@ public func inset(edges: Edges, _ horizontal: CGFloat, _ vertical: CGFloat) -> E
     return inset(edges, vertical, horizontal, vertical, horizontal)
 }
 
+/// Insets edges individually with UIEdgeInset.
+///
+/// - parameter edges:    The edges to inset.
+/// - parameter insets:   The amounts by which to inset all edges, in points via UIEdgeInsets.
+///
+/// - returns: A new expression with the inset edges.
+///
+public func inset(edges: Edges, _ insets: UIEdgeInsets) -> Expression<Edges> {
+    return inset(edges, insets.top, insets.left, insets.bottom, insets.right)
+}
+
 /// Insets edges individually.
 ///
 /// - parameter edges:    The edges to inset.
