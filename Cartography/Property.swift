@@ -48,6 +48,7 @@ public protocol RelativeEquality : Property { }
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func == <P: RelativeEquality>(lhs: P, rhs: Expression<P>) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients[0])
 }
@@ -58,6 +59,7 @@ public func == <P: RelativeEquality>(lhs: P, rhs: Expression<P>) -> NSLayoutCons
 ///             `translatesAutoresizingMaskIntoConstraints` set to `false`.
 /// - parameter rhs: The other property.
 ///
+@discardableResult
 public func == <P: RelativeEquality>(lhs: P, rhs: P) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, to: rhs)
 }
@@ -76,6 +78,7 @@ public protocol NumericalInequality : Property { }
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func <= (lhs: NumericalInequality, rhs: CGFloat) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, coefficients: Coefficients(1, rhs), relation: NSLayoutRelation.lessThanOrEqual)
 }
@@ -88,6 +91,7 @@ public func <= (lhs: NumericalInequality, rhs: CGFloat) -> NSLayoutConstraint {
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func >= (lhs: NumericalInequality, rhs: CGFloat) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, coefficients: Coefficients(1, rhs), relation: NSLayoutRelation.greaterThanOrEqual)
 }
@@ -104,6 +108,7 @@ public protocol RelativeInequality : Property { }
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func <= <P: RelativeInequality>(lhs: P, rhs: P) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutRelation.lessThanOrEqual)
 }
@@ -116,6 +121,7 @@ public func <= <P: RelativeInequality>(lhs: P, rhs: P) -> NSLayoutConstraint {
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func >= <P: RelativeInequality>(lhs: P, rhs: P) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutRelation.greaterThanOrEqual)
 }
@@ -128,6 +134,7 @@ public func >= <P: RelativeInequality>(lhs: P, rhs: P) -> NSLayoutConstraint {
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func <= <P: RelativeInequality>(lhs: P, rhs: Expression<P>) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients[0], relation: NSLayoutRelation.lessThanOrEqual)
 }
@@ -140,6 +147,7 @@ public func <= <P: RelativeInequality>(lhs: P, rhs: Expression<P>) -> NSLayoutCo
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func >= <P: RelativeInequality>(lhs: P, rhs: Expression<P>) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients[0], relation: NSLayoutRelation.greaterThanOrEqual)
 }
