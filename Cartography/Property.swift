@@ -32,6 +32,7 @@ public protocol NumericalEquality : Property { }
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
+@discardableResult
 public func == (lhs: NumericalEquality, rhs: CGFloat) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, coefficients: Coefficients(1, rhs))
 }
