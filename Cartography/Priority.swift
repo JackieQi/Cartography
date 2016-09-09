@@ -16,12 +16,12 @@ import AppKit
 public typealias LayoutPriority = NSLayoutPriority
 #endif
 
+precedencegroup PriorityPrecedence {
+    lowerThan: ComparisonPrecedence
+}
+
 infix operator  ~ : PriorityPrecedence
 
-precedencegroup PriorityPrecedence {
-  higherThan: BitwiseShiftPrecedence
-  associativity: right
-}
 
 /// Sets the priority for a constraint.
 ///
